@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import JobPosting from './components/JobPosting';
 import JobListings from './components/JobListings';
 import JobApplication from './components/JobApplication';
@@ -63,6 +63,7 @@ function App() {
         </ul>
       </div>
       <Routes>
+        <Route path="/" element={<Navigate to='/post-job' />} />
         <Route path="/post-job" element={<JobPosting addJobListing={addJobListing} />} />
         <Route path="/jobs" element={<JobListings jobListings={jobListings} />} />
         <Route path="/apply" element={<JobApplication />} />
